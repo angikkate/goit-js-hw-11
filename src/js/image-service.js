@@ -7,7 +7,7 @@ const API_KEY = '34651867-a9ff37d4e5e76304c6c99ac31';
 export default class ImagesApiService {
     constructor() {
         this.searchQuery = '';
-        this.per_page = 4;
+        this.per_page = 40;
         this.page = 1;
     }
 
