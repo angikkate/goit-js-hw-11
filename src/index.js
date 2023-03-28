@@ -52,12 +52,14 @@ function fetchImages() {
               
               lightbox.refresh();
               appendMarkup(response.hits);
+              //loadMoreBtn.show();
               loadMoreBtn.enable();
             }
         
             if (response.totalHits === 0) {
-                clearGallaryContainer();
+              clearGallaryContainer();
               Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+              loadMoreBtn.hide();
             }
           } catch (error) {
             console.log(error);
