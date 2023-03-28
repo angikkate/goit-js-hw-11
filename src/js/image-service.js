@@ -32,6 +32,10 @@ export default class ImagesApiService {
     resetPage() {
         this.page = 1;
     }
+
+    getValue() {
+        return this.per_page;
+    }
     
     get query() {
         return this.searchQuery;

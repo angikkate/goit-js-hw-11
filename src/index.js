@@ -35,8 +35,9 @@ function onSearch(e) {
         Notify.info('Enter data to search!');
         return;
     }
-
-    loadMoreBtn.show();
+    
+    loadMoreBtn.hide();
+    //loadMoreBtn.show();
     imagesApiService.resetPage();
     clearGallaryContainer();
     fetchImages();
@@ -48,24 +49,21 @@ function fetchImages() {
 
         try {
             if (response.totalHits > 0) {
+              loadMoreBtn.show();
               Notify.success(`Hooray! We found ${response.totalHits} images.`);
-              
               lightbox.refresh();
               appendMarkup(response.hits);
-              //loadMoreBtn.show();
               loadMoreBtn.enable();
             }
         
             if (response.totalHits === 0) {
               clearGallaryContainer();
               Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-              loadMoreBtn.hide();
             }
           } catch (error) {
             console.log(error);
           }
     });
-    
 }
 
 function appendMarkup(images) {
